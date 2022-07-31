@@ -14,7 +14,7 @@ const TodoList = ({ title, cards }) => {
 
 const styles = {
   container: {
-    backgroundColor: "#dfe3e6",
+    backgroundColor: "#98DDCA",
     borderRadius: 3,
     width: 300,
     padding: 8,
