@@ -1,4 +1,4 @@
-import Dashboard from "./dashboard/Dashboard";
+import { Dashboard } from "./rootscreen";
 
 function App() {
   return (
