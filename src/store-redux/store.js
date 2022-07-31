@@ -1,13 +1,10 @@
-// import { createStore } from "redux";
-
-// const reducer = () => {};
-
-// const store = createStore(reducer);
-
 import { configureStore } from "@reduxjs/toolkit";
+import listReducer from "./reducers/list-reducer/listReducer";
 
-export const store = configureStore({
-  reducer: {},
+const store = configureStore({
+  reducer: {
+    lists: listReducer,
+  },
 });
 
 export default store;
