@@ -1,3 +1,6 @@
+import  axios  from "axios";
+import { createAsyncThunk, createSlice, nanoid } from '@reduxjs/toolkit'
+
 const initialState = [
   {
     id: 1,
@@ -47,5 +50,10 @@ const listReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+// export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+//   const response = await axios.get('http://localhost:3000/data')
+//   return response.data
+// })
 
 export default listReducer;

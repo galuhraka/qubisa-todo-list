@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoCard } from "../rootcomponents";
+import { TodoCard, ActionButton } from "../rootcomponents";
 
 const TodoList = ({ title, cards }) => {
   return (
@@ -8,6 +8,7 @@ const TodoList = ({ title, cards }) => {
       {cards.map((card) => (
         <TodoCard key={card.id} text={card.text} />
       ))}
+      <ActionButton  />
     </div>
   );
 };
@@ -19,6 +20,7 @@ const styles = {
     width: 300,
     padding: 8,
     marginRight: 10,
+    height: '100%'
   },
 };
 

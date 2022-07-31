@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TodoList } from "../../components/rootcomponents";
+import { ActionButton, TodoList } from "../../components/rootcomponents";
 
 export class Dashboard extends Component {
   render() {
@@ -10,6 +10,7 @@ export class Dashboard extends Component {
         {lists.map((list) => (
           <TodoList key={list.id} title={list.title} cards={list.cards} />
         ))}
+        <ActionButton list />
       </div>
     );
   }
