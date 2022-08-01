@@ -1,10 +1,10 @@
-import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
+import React from "react";
 
 const TodoCard = ({ text }) => {
   return (
     <>
-      <Card style={styles.cardCOntainer}>
+      <Card style={styles.cardContainer}>
         <CardContent>
           <Typography gutterBottom>{text}</Typography>
         </CardContent>
@@ -14,9 +14,9 @@ const TodoCard = ({ text }) => {
 };
 
 const styles = {
-  cardCOntainer: {
+  cardContainer: {
     marginBottom: 8,
-  }
-}
+  },
+};
 
 export default TodoCard;
