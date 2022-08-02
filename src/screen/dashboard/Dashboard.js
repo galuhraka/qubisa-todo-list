@@ -32,6 +32,7 @@
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { DragDropContext } from "react-beautiful-dnd";
 import { ActionButton, TodoList } from "../../components/rootcomponents";
 import { getPosts } from "../../store-redux/features/postSlice";
 
@@ -48,13 +49,17 @@ const Dashboard = () => {
     return <h2>Loading...</h2>;
   }
 
+  const onDragEnd = () => {};
+
   return (
-    <div style={styles.listContainer}>
-      {posts.map((list) => (
-        <TodoList title={list.title} cards={list.cards} />
-      ))}
-      <ActionButton list />
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div style={styles.listContainer}>
+        {posts.map((list) => (
+          <TodoList key={list.id_post} title={list.title} cards={list.cards} />
+        ))}
+        <ActionButton list />
+      </div>
+    </DragDropContext>
   );
 };
 

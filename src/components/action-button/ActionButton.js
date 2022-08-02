@@ -1,6 +1,7 @@
 import { Button, Card, Icon } from "@mui/material";
 import React, { Component } from "react";
 import TextArea from "react-textarea-autosize";
+import postSlice from "../../store-redux/features/postSlice";
 
 export class ActionButton extends Component {
   state = {
@@ -23,6 +24,17 @@ export class ActionButton extends Component {
     this.setState({
       text: e.target.value,
     });
+  };
+
+  handleAddList = () => {
+    const { dispatch } = this.props;
+    const { title } = this.state;
+
+    if (title) {
+      dispatch(postSlice(title));
+    }
+
+    return;
   };
 
   renderAddButton = () => {
@@ -84,6 +96,7 @@ export class ActionButton extends Component {
         </Card>
         <div style={styles.formButtonGroup}>
           <Button
+            onMouseDown={this.handleAddList}
             variant="contained"
             style={{ color: "white", backgroundColor: "#333C83" }}
           >
