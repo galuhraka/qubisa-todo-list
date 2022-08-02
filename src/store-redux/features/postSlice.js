@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getPosts = createAsyncThunk("posts/getPosts", async () => {
-  return fetch("http://localhost:3004/posts").then((res) => res.json());
+  return fetch("http://localhost:3000/posts").then((res) => res.json());
 });
 
 const postSlice = createSlice({
@@ -10,17 +10,19 @@ const postSlice = createSlice({
     posts: [],
     loading: false,
   },
-  extraReducers: {
-    [getPosts.pending]: (state, action) => {
-      state.loading = true;
-    },
-    [getPosts.fulfilled]: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(getPosts.fulfilled, (state, action) => {
       state.loading = false;
       state.posts = action.payload;
-    },
-    [getPosts.rejected]: (state, action) => {
+    });
+
+    builder.addCase(getPosts.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(getPosts.rejected, (state, action) => {
       state.loading = false;
-    },
+    });
   },
 });
 
