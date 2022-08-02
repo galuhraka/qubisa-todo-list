@@ -1,50 +1,51 @@
 {
-  "posts": [
+  "data": [
     {
-      "id_post": 1,
-      "title": "TODO",
-      "cards": [
+      "id": 1,
+      "title": "TO-DO",
+      "todo": [
         {
-          "id_card": 1,
-          "text": "PMPL ID SPRING"
+          "id": 1,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Priority"
         },
         {
-          "id_card": 2,
-          "text": "PMPL ID VALKYRE "
+          "id": 2,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Medium"
         }
       ]
     },
     {
-      "id_post": 2,
+      "id": 2,
       "title": "PROGRESS",
-      "cards": [
+      "todo": [
         {
-          "id_card": 1,
-          "text": "Game Bakso Simulator"
+          "id": 1,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Priority"
         },
         {
-          "id_card": 2,
-          "text": "Game Warnet Simulator"
+          "id": 2,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Medium"
         },
         {
-          "id_card": 3,
-          "text": "Drama Korea - Mouse"
-        },
-        {
-          "id_card": 4,
-          "text": "Drama Korea - Goblin"
+          "id": 3,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Medium"
         }
       ]
     },
     {
-      "id_post": 3,
+      "id": 3,
       "title": "DONE",
-      "cards": [
+      "todo": [
         {
-          "id_card": 1,
-          "text": "Re-Install Android"
+          "id": 1,
+          "text": "Learn HTML, CSS & Javascript",
+          "label": "Low"
         }
-        
       ]
     }
   ]
