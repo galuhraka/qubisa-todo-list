@@ -6,8 +6,8 @@ import storeApi from "../../../utils/storeApi";
 
 const useStyle = makeStyles((theme) => ({
   card: {
+    width: '280px',
     margin: theme.spacing(0, 1, 1, 1),
-    padding: theme.spacing(1, 1, 1, 1),
     paddingBottom: theme.spacing(4),
   },
   input: {
@@ -41,8 +41,8 @@ const InputCard = ({ setOpen, listId, type }) => {
       addMoreCard(title, listId);
       setTitle("");
       setOpen(false);
-    }else{
-      addMoreList(title)
+    } else {
+      addMoreList(title);
       setTitle("");
       setOpen(false);
     }

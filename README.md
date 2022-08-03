@@ -17,6 +17,6 @@ CRUD - Mandatory :
 
 Drag & Drop - Additional :
 
-- [] Drag & Drop Card in the Same List
+- [x] Drag & Drop Card in the Same List
 - [] Drag & Drop Card in Different List
 - [] Drag & Drop List
