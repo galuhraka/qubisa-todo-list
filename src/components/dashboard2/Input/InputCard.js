@@ -1,7 +1,8 @@
 import { Button, IconButton, InputBase, Paper } from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import ClearIcon from "@mui/icons-material/Clear";
-import React from "react";
+import React, { useContext, useState } from "react";
+import storeApi from "../../../utils/storeApi";
 
 const useStyle = makeStyles((theme) => ({
   card: {
@@ -24,26 +25,46 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const InputCard = ({ setOpen }) => {
+const InputCard = ({ setOpen, listId }) => {
   const classes = useStyle();
+  const { addMoreCard } = useContext(storeApi);
+
+  const [cardTitle, setCardTitle] = useState(null);
+
+  const handleOnchange = (e) => {
+    setCardTitle(e.target.value);
+  };
+
+  const handleBtnConfirm = () => {
+    addMoreCard(cardTitle, listId);
+    setCardTitle("");
+    setOpen(false);
+  };
+
+  const handleBlur = () => {
+    setCardTitle("");
+    setOpen(false);
+  };
 
   return (
     <div>
       <div>
         <Paper className={classes.card}>
           <InputBase
+            onChange={handleOnchange}
             multiline
             fullWidth
-            onBlur={() => setOpen(false)}
+            onBlur={handleBlur}
             inputProps={{
               className: classes.input,
             }}
+            value={cardTitle}
             placeholder="Enter a title of this card..."
           />
         </Paper>
       </div>
       <div className={classes.confirm}>
-        <Button className={classes.btnConfirm} onClick={() => setOpen(false)}>
+        <Button className={classes.btnConfirm} onClick={handleBtnConfirm}>
           Add Card
         </Button>
         <IconButton onClick={() => setOpen(false)}>
