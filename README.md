@@ -11,7 +11,7 @@ CRUD - Mandatory :
 
 - [x] Initialize Data
 - [x] Add Card to List
-- [] Add New List
+- [x] Add New List
 - [] Update List Title
 
 Drag & Drop - Additional :

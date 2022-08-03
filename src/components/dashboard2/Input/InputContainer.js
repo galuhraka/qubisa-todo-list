@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import InputCard from "./InputCard";
 
 const useStyle = makeStyles((theme) => ({
-  root: { marginTop: theme.spacing(2) },
+  root: {
+    marginTop: theme.spacing(1),
+    width: "300px",
+  },
   addCard: {
     padding: theme.spacing(1, 1, 1, 2),
     margin: theme.spacing(0, 1, 1, 1),
@@ -15,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const InputContainer = ({ listId }) => {
+const InputContainer = ({ listId, type }) => {
   const classes = useStyle();
 
   const [open, setOpen] = useState(false);
@@ -23,7 +26,7 @@ const InputContainer = ({ listId }) => {
   return (
     <div className={classes.root}>
       <Collapse in={open}>
-        <InputCard setOpen={setOpen} listId={listId} />
+        <InputCard setOpen={setOpen} listId={listId} type={type} />
       </Collapse>
       <Collapse in={!open}>
         <Paper
@@ -31,7 +34,9 @@ const InputContainer = ({ listId }) => {
           elevation={0}
           onClick={() => setOpen(!open)}
         >
-          <Typography>+ Add a card</Typography>
+          <Typography>
+            {type === "card" ? "+ Add a card" : "+ Add another list"}
+          </Typography>
         </Paper>
       </Collapse>
     </div>
