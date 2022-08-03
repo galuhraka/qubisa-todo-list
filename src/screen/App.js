@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { v4 as uuid } from "uuid";
 import InputContainer from "../components/dashboard2/Input/InputContainer";
 import List from "../components/dashboard2/List/List";
@@ -76,11 +76,20 @@ const App = () => {
   };
 
   const onDragEnd = (result) => {
-    const { destination, source, draggableId } = result;
+    const { destination, source, draggableId, type } = result;
 
     console.log(destination, source, draggableId);
 
     if (!destination) {
+      return;
+    }
+
+    if (type === "list") {
+      const newListIds = data.listIds;
+
+      newListIds.splice(source.index, 1);
+      newListIds.splice(destination.index, 0, draggableId);
+
       return;
     }
 
@@ -102,7 +111,7 @@ const App = () => {
         },
       };
       setData(newState);
-    }else{
+    } else {
       sourceList.cards.splice(source.index, 1);
       destinationList.cards.splice(destination.index, 0, draggingCard);
 
@@ -121,13 +130,22 @@ const App = () => {
   return (
     <StoreApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className={classes.root}>
-          {data.listIds.map((listId) => {
-            const list = data.lists[listId];
-            return <List key={listId} list={list} />;
-          })}
-          <InputContainer type="list" />
-        </div>
+        <Droppable className="app" type="list" direction="horizontal">
+          {(provided) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className={classes.root}
+            >
+              {data.listIds.map((listId, index) => {
+                const list = data.lists[listId];
+                return <List key={listId} list={list} index={index} />;
+              })}
+              <InputContainer type="list" />
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </DragDropContext>
     </StoreApi.Provider>
   );

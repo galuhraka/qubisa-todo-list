@@ -19,4 +19,4 @@ Drag & Drop - Additional :
 
 - [x] Drag & Drop Card in the Same List
 - [x] Drag & Drop Card in Different List
-- [] Drag & Drop List
+- [x] Drag & Drop List
