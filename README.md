@@ -9,8 +9,8 @@ Layouts :
 
 CRUD - Mandatory :
 
-- [] Initialize Data
-- [] Add Card to List
+- [x] Initialize Data
+- [x] Add Card to List
 - [] Add New List
 - [] Update List Title
 
