@@ -7,9 +7,10 @@ import Title from "./Title";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    width: "300px",
+    minWidth: "300px",
     backgroundColor: "#CEE5D0",
     marginLeft: theme.spacing(1),
+    
   },
 }));
 
@@ -20,7 +21,7 @@ const List = ({ list }) => {
     <div>
       <Paper className={classes.root}>
         <CssBaseline />
-        <Title title={list.title} />
+        <Title title={list.title} listId={list.id} />
         {list.cards.map((card) => (
           <Card key={card.id} card={card} />
         ))}
